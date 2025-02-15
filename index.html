@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper" id="app">
+        <h3 style="text-align: center">
+            Товары
+        </h3>
+        <div style="display: flex; justify-content: space-evenly; margin-top: 100px;">
+            <div v-for="(item, index) in Products">
+                <img v-bind:src=item.img alt="" style="width: 200px; height: 300px; object-fit: cover;">
+                <br>
+                <span>{{item.name}}</span>
+                <br>
+                <span>{{item.price}}$</span>
+                <br>
+                <button v-on:click="addItem(item)" class="korzina">
+                    добавить в корзину
+                </button>
+            </div>
+        </div>
+        <h3 style="text-align: center;">
+            Корзина
+        </h3>
+        <span>Общее количество товаров: {{basketItems.length}}</span>
+        <table border="1" style="width:100%; text-align: center;">
+            <tr v-for="(item, index) in basketItems">
+                <td>{{index+1}}</td>
+                <td>
+                    <img v-bind:src=item.img style="width: 50px">
+                </td>
+                <td>{{item.name}}</td>
+                <!-- <td>{{item.quontaty}}</td> -->
+                <td>{{item.price}}</td>
+                <td><button v-on:click="removeItem(index)">Remove</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
