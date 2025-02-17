@@ -23,16 +23,33 @@ const app = Vue.createApp({
                     price: 350
                 },
             ],
-            basketItems: []
+            basketItems: [],
+            totalProducts: 0,
+            totalPrice: 0
+        }
+    },
+    watch: {
+        basketItems: {
+            handler(newVal) {
+                this.totalProducts = newVal.length;
+                this.calculateTotalPrice()
+            },
+            deep: true
         }
     },
     methods: {
         addItem(item) {
             this.basketItems.push(item);
+            console.log(this.basketItems);
         },
         removeItem(index) {
             this.basketItems.splice(index, 1)
+        },
+        calculateTotalPrice() {
+            this.totalPrice = this.basketItems.reduce((total, item) => {
+                return total + item.price * item.quontaty
+            }, 0)
         }
-    }
+    },
 })
 app.mount('#app')
