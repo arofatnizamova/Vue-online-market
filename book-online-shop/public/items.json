@@ -1,0 +1,5 @@
+[
+    { "id": 1, "img": "/public/1.jpg", "name": "Корейский язык", "price": 100 },
+    { "id": 2, "img": "/public/2.jpg", "name": "Японский язык", "price": 150 },
+    { "id": 3, "img": "/public/3.jpg", "name": "Немецкий язык", "price": 350 }
+]
