@@ -9,33 +9,31 @@
           <br>
           <span>{{ item.price }}$</span>
           <br>
-          <button @click="addToCart(item)" class="korzina btn-dark cursor-pointer btn">
+          <button @click="addToBasket(item)" class="korzina btn-dark cursor-pointer btn">
             добавить в корзину
           </button>
         </div>
       </div>
     </div>
   </div>
-  <BasketItem ref="cartComponent" />
 </template>
 
 <script>
-import BasketItem from './BasketItem.vue';
 export default {
-  components: { BasketItem },
   data() {
     return {
       products: [],
     };
   },
+  inject: ['basketItems'],
   methods: {
     async fetchData() {
         const response = await fetch("../../public/items.json");
         this.products = await response.json();
     },
-    addToCart(item) {
-      this.$refs.cartComponent.addToCart(item);
-    },
+    addToBasket(item){
+      this.basketItems.push(item);
+    }
   }
 };
 </script>

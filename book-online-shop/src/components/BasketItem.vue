@@ -14,16 +14,8 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-        basketItems: [],
-    };
-  },
+  inject: ['basketItems'],
   methods: {
-    addToCart(product) {
-      this.basketItems.push(product);
-      
-    },
     removeItem(index) {
         this.basketItems.splice(index, 1)
     },
