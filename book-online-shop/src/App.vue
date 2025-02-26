@@ -1,8 +1,11 @@
 <template>
-  <h1 class="mx-auto text-center my-5">CПИСОК ТОВАРОВ</h1>
-  <product-list></product-list>
-  <h2 class="mx-auto text-center my-5">Корзина</h2>
-  <basket-item></basket-item>
+  <!-- <product-list title="Список товаров"></product-list>
+  <basket-item title="Товары в корзине"></basket-item> -->
+  <router-link to="/product-list">Cписок товаров</router-link><br>
+  <router-link to="/basket-item">Корзина</router-link>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 

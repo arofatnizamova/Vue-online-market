@@ -1,4 +1,5 @@
 <template>
+    <h2 class="mx-auto text-center my-5">Корзина</h2>
     <table class="table text-center mt-5">
             <tr v-for="(item, index) in basketItems">
                 <td>{{index+1}}</td>
@@ -15,6 +16,9 @@
 <script>
 export default {
   inject: ['basketItems'],
+  props: [
+      'title'
+    ],
   methods: {
     removeItem(index) {
         this.basketItems.splice(index, 1)

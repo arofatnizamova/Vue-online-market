@@ -1,5 +1,6 @@
 <template>
   <button @click="fetchData" class="btn btn-info mx-auto d-block my-5">НАЖМИТЕ, ЧТОБЫ УВИДЕТЬ ТОВАРЫ</button>
+  <h1 class="mx-auto text-center my-5">{{ title }}</h1>
   <div class="row mt-5 justify-content-evenly">
     <div v-for="(item, index) in products" :key="index" class="col-lg-3">
       <div class="w-100 h-100 shadow rounded-5 overflow-hidden">
@@ -25,6 +26,9 @@ export default {
       products: [],
     };
   },
+  props: [
+      'title'
+    ],
   inject: ['basketItems'],
   methods: {
     async fetchData() {
